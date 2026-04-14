@@ -3,6 +3,7 @@ import { FriendsContext } from "./FriendsContext";
 
 const FriendsProvider = ({ children }) => {
   const [timeline, setTimeLine] = useState([]);
+
   const info = {
     timeline,
     setTimeLine,

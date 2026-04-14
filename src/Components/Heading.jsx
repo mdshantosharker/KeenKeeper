@@ -2,13 +2,15 @@ import React from "react";
 
 const Heading = () => {
   return (
-    <div className="my-10 text-center border-5 border-red-500">
-      <h1>Friends to keep close in your life</h1>
-      <p>
+    <div className="my-10 text-center w-11/12 mx-auto">
+      <h1 className="text-[#244D3F] mb-2 font-bold text-3xl lg:text-5xl">
+        Friends to keep close in your life
+      </h1>
+      <p className="text-[#64748B] mb-3 text-[12px] lg:text-[16px]">
         Your personal shelf of meaningful connections. Browse, tend, and nurture
-        the relationships that matter most.
+        the <br /> relationships that matter most.
       </p>
-      <button className="btn btn-success">+ Add a Friend</button>
+      <button className="btn bg-[#244D3F] text-white">+ Add a Friend</button>
     </div>
   );
 };
