@@ -3,8 +3,8 @@ import { Link } from "react-router";
 
 const Friend = ({ friend }) => {
   console.log(friend);
-  const { picture, name, days_since_contact,category } = friend;
-  // to={`/friendsDetails/${friend.id}`}
+  const { picture, name, days_since_contact, category, status } = friend;
+  //
   return (
     // <Link  className="card bg-base-100  shadow-sm">
     //   <figure>
@@ -25,7 +25,10 @@ const Friend = ({ friend }) => {
     //   </div>
     // </Link>
 
-    <div className="card bg-base-100   shadow-sm">
+    <Link
+      to={`/friendsDetails/${friend.id}`}
+      className="card bg-base-100   shadow-sm"
+    >
       <div className="card-body text-center items-center">
         <div className="avatar">
           <div className="w-24 rounded-full">
@@ -38,12 +41,24 @@ const Friend = ({ friend }) => {
           <div className="bg-[#CBFADB] w-16 p-1 text-center rounded-4xl">
             <p className="text-[#244D3F]">{category}</p>
           </div>
-          <div className="bg-[#EFAD44] p-1 text-white w-24 rounded-4xl">
-            <p>Almost Due</p>
+          <div
+            className={`p-1 text-white w-24 rounded-4xl ${
+              status === "active"
+                ? "bg-[#244D3F]"
+                : status === "overdue"
+                  ? "bg-[#EF4444]"
+                  : "bg-[#EFAD44]"
+            }`}
+          >
+            <p>
+              {(status === "Almost Due" && "Almost Due") ||
+                (status === "active" && "On-Tack") ||
+                (status === "overdue" && "Overdue")}
+            </p>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
