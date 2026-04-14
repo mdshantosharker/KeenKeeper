@@ -15,28 +15,28 @@ const FriendsDetails = () => {
   const { timeline, setTimeLine } = useContext(FriendsContext);
 
   const handleCall = (expectedFriends) => {
-   const now = new Date().toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+    const now = new Date().toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
     setTimeLine([...timeline, { ...expectedFriends, type: "call", time: now }]);
   };
   const handleText = (expectedFriends) => {
     const now = new Date().toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
 
     setTimeLine([...timeline, { ...expectedFriends, type: "text", time: now }]);
   };
   const handleVideo = (expectedFriends) => {
-   const now = new Date().toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+    const now = new Date().toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
 
     setTimeLine([
       ...timeline,
@@ -45,11 +45,14 @@ const FriendsDetails = () => {
   };
   // console.log(timeline);
   return (
-    <div className="bg-[#F8FAFC] p-4">
+   <div className="bg-[#F8FAFC] p-4">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6">
+
+       
         <div className="w-full lg:w-[30%] space-y-5">
           <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition">
             <div className="flex flex-col items-center text-center p-6 space-y-4">
+
               <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-[#E2E8F0]">
                 <img
                   src={expectedFriends.picture}
@@ -76,15 +79,15 @@ const FriendsDetails = () => {
                     expectedFriends.status === "active"
                       ? "bg-[#244D3F]"
                       : expectedFriends.status === "overdue"
-                        ? "bg-[#EF4444]"
-                        : "bg-[#EFAD44]"
+                      ? "bg-[#EF4444]"
+                      : "bg-[#EFAD44]"
                   }`}
                 >
                   {expectedFriends.status === "active"
                     ? "On-Track"
                     : expectedFriends.status === "overdue"
-                      ? "Overdue"
-                      : "Almost Due"}
+                    ? "Overdue"
+                    : "Almost Due"}
                 </span>
               </div>
             </div>
@@ -108,7 +111,10 @@ const FriendsDetails = () => {
           </div>
         </div>
 
+       
         <div className="w-full lg:w-[70%] space-y-6">
+
+          
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div className="bg-white rounded-xl shadow-sm text-center p-5">
               <h2 className="text-2xl font-bold">62</h2>
@@ -126,27 +132,30 @@ const FriendsDetails = () => {
             </div>
           </div>
 
+        
           <div className="bg-white rounded-xl shadow-sm p-5 flex justify-between items-center">
             <div>
               <h1 className="text-[#244D3F] font-semibold text-lg">
                 Relationship Goal
               </h1>
               <p className="text-sm text-gray-600">
-                Connect every
-                <span className="font-bold text-gray-800"> 30 days</span>
+                Connect every <span className="font-bold text-gray-800">30 days</span>
               </p>
             </div>
+
             <button className="text-sm w-20 btn px-3 py-1 rounded-sm bg-gray-100 hover:bg-gray-200">
               Edit
             </button>
           </div>
 
+          
           <div className="bg-white rounded-2xl shadow-md p-5">
             <h1 className="text-[#1F2937] text-lg font-semibold">
               Quick Check-In
             </h1>
 
             <div className="grid grid-cols-3 gap-4 mt-4">
+
               <button
                 onClick={() => handleCall(expectedFriends)}
                 className="flex flex-col items-center gap-2 py-4 rounded-xl bg-[#F1F5F9] hover:bg-[#244D3F] hover:text-white transition group"
@@ -165,47 +174,75 @@ const FriendsDetails = () => {
 
               <button
                 onClick={() => handleVideo(expectedFriends)}
-                className="flex flex-col  items-center gap-2 py-4 rounded-xl bg-[#F1F5F9] hover:bg-[#EF4444] hover:text-white transition group"
+                className="flex flex-col items-center gap-2 py-4 rounded-xl bg-[#F1F5F9] hover:bg-[#EF4444] hover:text-white transition group"
               >
                 <PiVideoCameraBold className="text-2xl group-hover:scale-110 transition" />
                 <span className="text-sm">Video</span>
               </button>
+
             </div>
           </div>
 
+         
           <div className="bg-white rounded-2xl shadow-md p-5">
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <h1 className="text-lg font-semibold text-[#1F2937]">
-                  Recent Interactions
-                </h1>
 
-                <button className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 transition">
-                  <FaHistory />
-                  Full History
-                </button>
-              </div>
+            <div className="flex items-center justify-between mb-4">
+              <h1 className="text-lg font-semibold text-[#1F2937]">
+                Recent Interactions
+              </h1>
 
-              <div className="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 transition">
-                <div className="flex items-center gap-4">
-                  <div className="p-3 rounded-full bg-[#E0F2FE] text-[#0284C7]">
-                    <MdOutlineTextsms className="text-xl" />
-                  </div>
-
-                  <div>
-                    <h2 className="text-sm font-semibold text-gray-800">
-                      Text
-                    </h2>
-                    <p className="text-xs text-gray-500">
-                      Asked for career advice
-                    </p>
-                  </div>
-                </div>
-
-                <p className="text-xs text-gray-400">Jan 28, 2026</p>
-              </div>
+              <button className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 transition">
+                <FaHistory />
+                Full History
+              </button>
             </div>
+
+            <div className="space-y-3">
+
+              {timeline.map((time, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 transition"
+                >
+
+                
+                  <div className="flex items-center gap-4">
+
+                    <img
+                      className="w-6 h-6"
+                      src={
+                        time.type === "call"
+                          ? "/src/assets/call.png"
+                          : time.type === "text"
+                          ? "/src/assets/text.png"
+                          : "/src/assets/video.png"
+                      }
+                      alt=""
+                    />
+
+                    <div>
+                      <h2 className="text-lg font-semibold text-gray-800">
+                        {time.type}
+                      </h2>
+                      <p className="text-xs text-gray-500">
+                        {time.bio}
+                      </p>
+                    </div>
+
+                  </div>
+
+                 
+                  <p className="text-xs text-gray-400 whitespace-nowrap">
+                    {time.time}
+                  </p>
+
+                </div>
+              ))}
+
+            </div>
+
           </div>
+
         </div>
       </div>
     </div>
