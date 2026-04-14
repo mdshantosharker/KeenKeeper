@@ -7,7 +7,6 @@ const cardFetch = async () => {
 const cardPromise = cardFetch();
 const HeadingCard = () => {
   const cards = use(cardPromise);
-  console.log(cards);
   return (
     <div className="grid lg:grid-cols-4 lg:gap-10 gap-5 grid-cols-2  p-2 text-center">
       <div className="card bg-base-100   shadow-sm">

@@ -15,31 +15,36 @@ const FriendsDetails = () => {
   const { timeline, setTimeLine } = useContext(FriendsContext);
 
   const handleCall = (expectedFriends) => {
-    setTimeLine([...timeline, expectedFriends]);
+   const now = new Date().toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+    setTimeLine([...timeline, { ...expectedFriends, type: "call", time: now }]);
   };
   const handleText = (expectedFriends) => {
-    setTimeLine([...timeline, expectedFriends]);
+    const now = new Date().toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+    setTimeLine([...timeline, { ...expectedFriends, type: "text", time: now }]);
   };
   const handleVideo = (expectedFriends) => {
-    setTimeLine([...timeline, expectedFriends]);
+   const now = new Date().toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+    setTimeLine([
+      ...timeline,
+      { ...expectedFriends, type: "video", time: now },
+    ]);
   };
   // console.log(timeline);
   return (
-    // <div className="text-center">
-    //   FriendsDetails{expectedFriends.name}
-    //   <div className="flex flex-col gap-2">
-    //     <button onClick={() => handleCall(expectedFriends)} className="btn">
-    //       call
-    //     </button>
-    //     <button onClick={() => handleText(expectedFriends)} className="btn">
-    //       text
-    //     </button>
-    //     <button onClick={() => handleVideo(expectedFriends)} className="btn">
-    //       video
-    //     </button>
-    //   </div>
-    // </div>
-
     <div className="bg-[#F8FAFC] p-4">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6">
         <div className="w-full lg:w-[30%] space-y-5">
@@ -142,17 +147,26 @@ const FriendsDetails = () => {
             </h1>
 
             <div className="grid grid-cols-3 gap-4 mt-4">
-              <button className="flex flex-col items-center gap-2 py-4 rounded-xl bg-[#F1F5F9] hover:bg-[#244D3F] hover:text-white transition group">
+              <button
+                onClick={() => handleCall(expectedFriends)}
+                className="flex flex-col items-center gap-2 py-4 rounded-xl bg-[#F1F5F9] hover:bg-[#244D3F] hover:text-white transition group"
+              >
                 <FiPhoneCall className="text-2xl group-hover:scale-110 transition" />
                 <span className="text-sm">Call</span>
               </button>
 
-              <button className="flex flex-col items-center gap-2 py-4 rounded-xl bg-[#F1F5F9] hover:bg-[#3B82F6] hover:text-white transition group">
+              <button
+                onClick={() => handleText(expectedFriends)}
+                className="flex flex-col items-center gap-2 py-4 rounded-xl bg-[#F1F5F9] hover:bg-[#3B82F6] hover:text-white transition group"
+              >
                 <MdOutlineTextsms className="text-2xl group-hover:scale-110 transition" />
                 <span className="text-sm">Text</span>
               </button>
 
-              <button className="flex flex-col  items-center gap-2 py-4 rounded-xl bg-[#F1F5F9] hover:bg-[#EF4444] hover:text-white transition group">
+              <button
+                onClick={() => handleVideo(expectedFriends)}
+                className="flex flex-col  items-center gap-2 py-4 rounded-xl bg-[#F1F5F9] hover:bg-[#EF4444] hover:text-white transition group"
+              >
                 <PiVideoCameraBold className="text-2xl group-hover:scale-110 transition" />
                 <span className="text-sm">Video</span>
               </button>
@@ -160,42 +174,37 @@ const FriendsDetails = () => {
           </div>
 
           <div className="bg-white rounded-2xl shadow-md p-5">
-            
-           <div>
-            
-             <div className="flex items-center justify-between mb-4">
-              <h1 className="text-lg font-semibold text-[#1F2937]">
-                Recent Interactions
-              </h1>
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <h1 className="text-lg font-semibold text-[#1F2937]">
+                  Recent Interactions
+                </h1>
 
-              <button className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 transition">
-                <FaHistory />
-                Full History
-              </button>
-            </div>
-
-            
-            <div className="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 transition">
-             
-              <div className="flex items-center gap-4">
-               
-                <div className="p-3 rounded-full bg-[#E0F2FE] text-[#0284C7]">
-                  <MdOutlineTextsms className="text-xl" />
-                </div>
-
-                
-                <div>
-                  <h2 className="text-sm font-semibold text-gray-800">Text</h2>
-                  <p className="text-xs text-gray-500">
-                    Asked for career advice
-                  </p>
-                </div>
+                <button className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 transition">
+                  <FaHistory />
+                  Full History
+                </button>
               </div>
 
-              
-              <p className="text-xs text-gray-400">Jan 28, 2026</p>
+              <div className="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 transition">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 rounded-full bg-[#E0F2FE] text-[#0284C7]">
+                    <MdOutlineTextsms className="text-xl" />
+                  </div>
+
+                  <div>
+                    <h2 className="text-sm font-semibold text-gray-800">
+                      Text
+                    </h2>
+                    <p className="text-xs text-gray-500">
+                      Asked for career advice
+                    </p>
+                  </div>
+                </div>
+
+                <p className="text-xs text-gray-400">Jan 28, 2026</p>
+              </div>
             </div>
-           </div>
           </div>
         </div>
       </div>

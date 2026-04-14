@@ -7,6 +7,7 @@ const FriendsProvider = ({ children }) => {
   const info = {
     timeline,
     setTimeLine,
+   
   };
   return (
     <FriendsContext.Provider value={info}>{children}</FriendsContext.Provider>
