@@ -7,10 +7,9 @@ const Home = () => {
   return (
     <div className="bg-[#F8FAFC] ">
       <div className="lg:container lg:w-10/12 w-11/12 mx-auto">
-      <Heading />
-      <HeadingCard />
-      <Friends />
-
+        <Heading />
+        <HeadingCard />
+        <Friends />
       </div>
     </div>
   );

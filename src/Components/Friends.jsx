@@ -14,7 +14,7 @@ const Friends = () => {
   }, []);
   //   console.log(friends);
   return (
-    <div className=" my-10">
+    <div className="py-10">
       <h1 className="font-bold text-2xl my-5">Your Friends</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-5">
         {friends.map((friend) => (
