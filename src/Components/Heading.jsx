@@ -2,7 +2,7 @@ import React from "react";
 
 const Heading = () => {
   return (
-    <div className="my-10 text-center w-11/12 mx-auto">
+    <div className="py-10 text-center w-11/12 mx-auto">
       <h1 className="text-[#244D3F] mb-2 font-bold text-3xl lg:text-5xl">
         Friends to keep close in your life
       </h1>
