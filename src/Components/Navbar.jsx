@@ -24,7 +24,6 @@ const Navbar = () => {
 
       <li>
         <MyNavLink to={"/stats"}>
-          {" "}
           <ImStatsDots />
           Stats
         </MyNavLink>
