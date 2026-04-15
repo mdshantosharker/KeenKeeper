@@ -35,8 +35,11 @@ const Timeline = () => {
               <div className="flex items-center gap-3 sm:gap-4">
                 <div className="p-2 rounded-full bg-gray-100">
                   <img
-                    src={time.type==='call'? "/src/assets/call.png":time.type==='text'? "/src/assets/text.png": "/src/assets/video.png"}
-                    // "/src/assets/call.png"
+                    src={
+                      (time.type === "Call" && "/src/assets/call.png") ||
+                      (time.type === "Text" && "/src/assets/text.png") ||
+                      (time.type === "Video" && "/src/assets/video.png")
+                    }
                     alt=""
                     className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
                   />
@@ -44,7 +47,8 @@ const Timeline = () => {
 
                 <div>
                   <h1 className="text-sm sm:text-base  text-gray-800">
-                    <span className="font-bold text-xl">{time.type}</span> with {time.name}
+                    <span className="font-bold text-xl">{time.type}</span> with{" "}
+                    {time.name}
                   </h1>
                   <p className="text-xs sm:text-sm text-gray-500">
                     {time.time}

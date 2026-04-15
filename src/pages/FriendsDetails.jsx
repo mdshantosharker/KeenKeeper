@@ -5,6 +5,7 @@ import { RiDeleteBin6Line, RiNotificationSnoozeLine } from "react-icons/ri";
 import { FiArchive, FiPhoneCall } from "react-icons/fi";
 import { MdOutlineTextsms } from "react-icons/md";
 import { PiVideoCameraBold } from "react-icons/pi";
+import { toast } from "react-toastify";
 
 const FriendsDetails = () => {
   const { id } = useParams();
@@ -19,7 +20,8 @@ const FriendsDetails = () => {
       month: "long",
       day: "numeric",
     });
-    setTimeLine([...timeline, { ...expectedFriends, type: "call", time: now }]);
+    setTimeLine([...timeline, { ...expectedFriends, type: "Call", time: now }]);
+    toast.success("Send Call");
   };
   const handleText = (expectedFriends) => {
     const now = new Date().toLocaleDateString("en-US", {
@@ -28,7 +30,8 @@ const FriendsDetails = () => {
       day: "numeric",
     });
 
-    setTimeLine([...timeline, { ...expectedFriends, type: "text", time: now }]);
+    setTimeLine([...timeline, { ...expectedFriends, type: "Text", time: now }]);
+    toast.success("Send Text");
   };
   const handleVideo = (expectedFriends) => {
     const now = new Date().toLocaleDateString("en-US", {
@@ -39,12 +42,22 @@ const FriendsDetails = () => {
 
     setTimeLine([
       ...timeline,
-      { ...expectedFriends, type: "video", time: now },
+      { ...expectedFriends, type: "Video", time: now },
     ]);
+    toast.success("Send Video ");
   };
 
-
-  const {goal,picture,name,status,category,email,next_due_date,days_since_contact,bio} = expectedFriends
+  const {
+    goal,
+    picture,
+    name,
+    status,
+    category,
+    email,
+    next_due_date,
+    days_since_contact,
+    bio,
+  } = expectedFriends;
   // console.log(timeline);
   return (
     <div className="bg-[#F8FAFC] p-4">
@@ -84,7 +97,9 @@ const FriendsDetails = () => {
                   {category}
                 </span>
 
-                <p className="inter-fonts text-gray-400 font-semibold text-xl"><i>"{bio}"</i></p>
+                <p className="inter-fonts text-gray-400 font-semibold text-xl">
+                  <i>"{bio}"</i>
+                </p>
                 <p className="text-gray-400">Preferred: {email}</p>
               </div>
             </div>
