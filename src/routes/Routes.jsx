@@ -4,10 +4,12 @@ import Home from "../pages/Home";
 import Timeline from "../pages/Timeline";
 import Stats from "../pages/Stats";
 import FriendsDetails from "../pages/FriendsDetails";
+import Errorpage from "../pages/Errorpage";
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <Errorpage />,
     children: [
       { index: true, Component: Home },
       { path: "/timeline", Component: Timeline },
@@ -18,5 +20,9 @@ export const router = createBrowserRouter([
         Component: FriendsDetails,
       },
     ],
+  },
+  {
+    path: "*",
+    Component: Errorpage,
   },
 ]);
