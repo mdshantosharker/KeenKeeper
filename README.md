@@ -3,6 +3,7 @@
 ## 🌐 Live Links
 
 🔗 Live: https://keenkeeperctv.netlify.app/
+<br />
 📦 Repo: https://github.com/mdshantosharker/KeenKeeper
 
 ---
@@ -42,8 +43,11 @@ KeenKeeper is a simple and responsive web app to help you keep track of your fri
 
 ```bash id="setup123"
 git clone https://github.com/mdshantosharker/KeenKeeper.git
+
 cd KeenKeeper
+
 npm install
+
 npm run dev
 ```
 
