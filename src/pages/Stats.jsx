@@ -22,8 +22,8 @@ const Stats = () => {
   ];
 
   return (
-    <div className="bg-base-300">
-      <div className=" p-4 container w-11/12 mx-auto sm:p-6 md:p-10">
+    <div className="">
+      <div className="p-4 container w-11/12 mx-auto sm:p-6 md:p-10">
         <h1 className="font-bold text-2xl  md:text-5xl text-center md:text-left">
           Friendship Analytics
         </h1>
@@ -33,7 +33,7 @@ const Stats = () => {
             <img
               src="https://cdn-icons-png.flaticon.com/512/4076/4076549.png"
               alt="No data"
-              className="w-24 h-24 opacity-70 mb-4"
+              className="w-42 h-42 opacity-70 mb-4"
             />
 
             <h2 className="text-xl font-semibold text-gray-700">

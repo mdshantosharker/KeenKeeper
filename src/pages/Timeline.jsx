@@ -29,6 +29,28 @@ const Timeline = () => {
       setInput(video);
     }
   };
+
+  if(timeline.length==0){
+    return(
+      <div className="flex flex-col items-center justify-center py-16 text-center">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/4076/4076549.png"
+              alt="No data"
+              className="w-42 h-42 opacity-70 mb-4"
+            />
+
+            <h2 className="text-xl font-semibold text-gray-700">
+              No Data Found
+            </h2>
+
+            <p className="text-gray-400 mt-2 text-sm max-w-xs">
+              There is no data available right now. Please add some data or try
+              again later.
+            </p>
+          </div>
+    )
+    
+  }
   return (
     <div className="bg-[#F8FAFC] p-4 min-h-screen">
       <div className="max-w-3xl mx-auto">
@@ -61,9 +83,9 @@ const Timeline = () => {
                 <div className="p-2 rounded-full bg-gray-100">
                   <img
                     src={
-                      (time.type === "Call" && "/src/assets/call.png") ||
-                      (time.type === "Text" && "/src/assets/text.png") ||
-                      (time.type === "Video" && "/src/assets/video.png")
+                      (time.type === "Call" && "./src/assets/call.png") ||
+                      (time.type === "Text" && "./src/assets/text.png") ||
+                      (time.type === "Video" && "./src/assets/video.png")
                     }
                     alt=""
                     className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
