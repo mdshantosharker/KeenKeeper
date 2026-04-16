@@ -4,27 +4,31 @@ import { FriendsContext } from "../context/FriendsContext";
 const Timeline = () => {
   const { timeline } = useContext(FriendsContext);
   const [input, setInput] = useState(timeline);
+ 
   // console.log(type);
   // console.log(timeline);
 
   const call = timeline.filter((time) => time.type === "Call");
-  console.log(call);
+
   const text = timeline.filter((time) => time.type === "Text");
-  console.log(text);
+ 
   const video = timeline.filter((time) => time.type === "Video");
-  console.log(video);
+
   // console.log(call, text, video);
 
   const handleClick = (e) => {
     e.preventDefault();
     const data = e.target.value;
+   
     if (data === "Call") {
       setInput(call);
       console.log(data);
     } else if (data === "Text") {
       setInput(text);
-    } else {
+    } else if (data === "Video") {
       setInput(video);
+    } else {
+      setInput(timeline);
     }
   };
 
@@ -59,9 +63,8 @@ const Timeline = () => {
             defaultValue=""
             className="select mt-4 select-bordered w-full sm:w-48"
           >
-            <option value="" disabled>
-              Filter timeline
-            </option>
+            <option value="">All</option>
+
             <option value="Call">Call</option>
             <option value="Text">Text</option>
             <option value="Video">Video</option>
@@ -69,9 +72,9 @@ const Timeline = () => {
         </div>
 
         <div className="grid grid-cols-1 gap-4">
-          {input.map((time) => (
+          {input.map((time, index) => (
             <div
-              key={time.id}
+              key={index}
               className="flex items-center justify-between bg-white rounded-xl shadow-sm hover:shadow-md transition p-4"
             >
               <div className="flex items-center gap-3 sm:gap-4">

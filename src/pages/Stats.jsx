@@ -51,7 +51,7 @@ const Stats = () => {
               By Interaction Type
             </p>
 
-            <div className="flex justify-center items-center w-full h-62.5 sm:h-75 md:h-100">
+            <div className="flex justify-center  w-full h-62.5 sm:h-75 md:h-100">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie

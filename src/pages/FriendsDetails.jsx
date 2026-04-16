@@ -11,7 +11,6 @@ const FriendsDetails = () => {
   const { id } = useParams();
   const friends = useLoaderData();
   const expectedFriends = friends.find((friend) => friend.id == id);
-
   const { timeline, setTimeLine } = useContext(FriendsContext);
 
   const handleCall = (expectedFriends) => {
@@ -20,14 +19,8 @@ const FriendsDetails = () => {
       month: "long",
       day: "numeric",
     });
-    const exitedFriends = timeline.find((f) => f.id === expectedFriends.id && f.type==='Call');
-    if (exitedFriends) {
-      toast.error(`already added call with ${expectedFriends.name}`);
-      return;
-    } else {
-      setTimeLine([...timeline,{...expectedFriends,type:"Call",time:now}]);
-      toast.success(`Send Call ${expectedFriends.name}`);
-    }
+    setTimeLine([...timeline, { ...expectedFriends, type: "Call", time: now }]);
+    toast.success(`Send Call ${expectedFriends.name}`);
   };
   const handleText = (expectedFriends) => {
     const now = new Date().toLocaleDateString("en-US", {
@@ -35,16 +28,9 @@ const FriendsDetails = () => {
       month: "long",
       day: "numeric",
     });
-    const exitedFriends = timeline.find((f) => f.id === expectedFriends.id && f.type==='Text');
-    if (exitedFriends) {
-      toast.error(`already added ${expectedFriends.name}`);
-      return;
-    } else {
-      setTimeLine([
-        ...timeline,
-        { ...expectedFriends, type: "Text", time: now }]);
-      toast.success(`Send Text ${expectedFriends.name}`);
-    }
+
+    setTimeLine([...timeline, { ...expectedFriends, type: "Text", time: now }]);
+    toast.success(`Send Text ${expectedFriends.name}`);
   };
   const handleVideo = (expectedFriends) => {
     const now = new Date().toLocaleDateString("en-US", {
@@ -52,17 +38,12 @@ const FriendsDetails = () => {
       month: "long",
       day: "numeric",
     });
-    const exitedFriends = timeline.find((f) => f.id === expectedFriends.id && f.type==='Video');
-    if (exitedFriends) {
-      toast.error(`already added ${expectedFriends.name}`);
-      return;
-    } else {
-      setTimeLine([
-        ...timeline,
-        { ...expectedFriends, type: "Video", time: now },
-      ]);
-      toast.success(`Send Video ${expectedFriends.name}`);
-    }
+
+    setTimeLine([
+      ...timeline,
+      { ...expectedFriends, type: "Video", time: now },
+    ]);
+    toast.success(`Send Video ${expectedFriends.name}`);
   };
 
   const {
