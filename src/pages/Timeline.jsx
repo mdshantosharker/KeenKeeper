@@ -1,10 +1,34 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FriendsContext } from "../context/FriendsContext";
 
 const Timeline = () => {
   const { timeline } = useContext(FriendsContext);
+  const [input, setInput] = useState(timeline);
   // console.log(type);
-  console.log(timeline);
+  // console.log(timeline);
+
+  const call = timeline.filter((time) => time.type === "Call");
+  console.log(call);
+  const text = timeline.filter((time) => time.type === "Text");
+  console.log(text);
+  const video = timeline.filter((time) => time.type === "Video");
+  console.log(video);
+  // console.log(call, text, video);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    const data = e.target.value;
+    if (data === "Call") {
+      setInput(call);
+      console.log(data);
+    }
+    else if (data === "Text") {
+      setInput(text);
+    }
+    else  {
+      setInput(video);
+    }
+  };
   return (
     <div className="bg-[#F8FAFC] p-4 min-h-screen">
       <div className="max-w-3xl mx-auto">
@@ -14,20 +38,21 @@ const Timeline = () => {
           </h1>
 
           <select
+            onChange={handleClick}
             defaultValue=""
             className="select mt-4 select-bordered w-full sm:w-48"
           >
             <option value="" disabled>
               Filter timeline
             </option>
-            <option value="call">Call</option>
-            <option value="text">Text</option>
-            <option value="video">Video</option>
+            <option value="Call">Call</option>
+            <option value="Text">Text</option>
+            <option value="Video">Video</option>
           </select>
         </div>
 
         <div className="grid grid-cols-1 gap-4">
-          {timeline.map((time) => (
+          {input.map((time) => (
             <div
               key={time.id}
               className="flex items-center justify-between bg-white rounded-xl shadow-sm hover:shadow-md transition p-4"
