@@ -59,7 +59,7 @@ const FriendsDetails = () => {
   } = expectedFriends;
   // console.log(timeline);
   return (
-    <div className="bg-[#F8FAFC] p-4">
+    <div className="bg-[#F8FAFC] p-4 pt-14">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6">
         <div className="w-full  lg:w-[30%] space-y-5">
           <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition">

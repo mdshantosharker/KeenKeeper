@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import MyNavLink from "./Shared/MyNavLink";
 import { RiHome2Line } from "react-icons/ri";
 import { IoTimeOutline } from "react-icons/io5";
@@ -64,9 +64,9 @@ const Navbar = () => {
                 {links}
               </ul>
             </div>
-            <a className="btn btn-ghost gap-0  font-bold text-3xl">
+            <Link to={'/'}><a className="btn btn-ghost gap-0  font-bold text-3xl">
               Keen<span className="text-[#244D3F]">Keeper</span>
-            </a>
+            </a></Link>
           </div>
 
           <div className="hidden lg:block">
