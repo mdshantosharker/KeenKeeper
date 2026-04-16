@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { FriendsContext } from "../src/context/FriendsContext";
+import { FriendsContext } from "../context/FriendsContext";
 
 const Timeline = () => {
   const { timeline } = useContext(FriendsContext);
