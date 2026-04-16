@@ -1,16 +1,55 @@
-# React + Vite
+# 👥 KeenKeeper
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🌐 Live Links
 
-Currently, two official plugins are available:
+🔗 Live: https://keenkeeperctv.netlify.app/
+📦 Repo: https://github.com/mdshantosharker/KeenKeeper
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📖 About
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+KeenKeeper is a simple and responsive web app to help you keep track of your friendships. You can manage friends, log interactions, and see your communication history in one place.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+* 🧭 Navbar with active links
+* 🎯 Banner with summary cards
+* 👫 Friend list from JSON
+* 👤 Friend details page
+* ⚡ Call / Text / Video interaction log
+* 📜 Timeline history
+* 🔔 Toast notifications
+* ⏳ Loading spinner
+* 🚫 Custom 404 page
+* 📱 Fully responsive
+
+---
+
+## 🛠️ Tech Stack
+
+* React.js
+* React Router
+* Tailwind CSS + DaisyUI
+* Recharts
+* Netlify
+
+---
+
+## 🚀 Setup
+
+```bash id="setup123"
+git clone https://github.com/mdshantosharker/KeenKeeper.git
+cd KeenKeeper
+npm install
+npm run dev
+```
+
+---
+
+## 👨‍💻 Author
+
+Md Shanto Sharker
+
